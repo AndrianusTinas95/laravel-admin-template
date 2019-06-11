@@ -13,5 +13,9 @@
 Route::view('/', 'Inspinia.layouts.app');
 
 Route::get('home-{home}',function($home){
-    return view()->exist("Inspinia.pages.home-$home") ? view("Inspinia.pages.home-$home") : abort(404);
+    return view()->exists("Inspinia.pages.home-$home") ? view("Inspinia.pages.home-$home") : abort(404);
+});
+
+Route::get('graph-{graph}',function($graph){
+    return view()->exists("Inspinia.graph.pages.$graph") ? view("Inspinia.graph.pages.$graph") : abort(404);
 });

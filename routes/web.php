@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'Inspinia.layouts.app');
 
-
-Route::view('/', 'Inspinia.layouts.app-2');
+Route::get('home-{home}',function($home){
+    return view()->exist("Inspinia.pages.home-$home") ? view("Inspinia.pages.home-$home") : abort(404);
+});
